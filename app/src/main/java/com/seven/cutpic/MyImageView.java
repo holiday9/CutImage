@@ -2,6 +2,7 @@ package com.seven.cutpic;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -12,6 +13,8 @@ public class MyImageView extends ImageView{
     public MyImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
+    private Matrix mDrawMatrix = null;
 /*
     private void configureBounds() {
         if (mDrawable == null || !mHaveFrame) {

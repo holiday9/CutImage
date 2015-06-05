@@ -11,9 +11,10 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 /**
  * Created by htyuan on 15-6-5.
  */
-public class BigPicShow {
+public class BigPicShow implements PhotoViewAttacher.OnPhotoTapListener{
     private final Activity mActivity;
     PhotoViewAttacher mAttacher;
+    private CustomDialog mImageDialog;
 
     public BigPicShow(BigPicBrowseActivity bigPicBrowseActivity) {
         this.mActivity = bigPicBrowseActivity;
@@ -23,14 +24,21 @@ public class BigPicShow {
     }
 
     public void show(int index) {
-        CustomDialog dialog = new CustomDialog(mActivity,R.style.customDialog ,R.layout.show_big_pic);
+        mImageDialog = new CustomDialog(mActivity,R.style.customDialog ,R.layout.show_big_pic);
 
         View view = mActivity.getLayoutInflater().inflate(R.layout.show_big_pic, null);
-        dialog.setContentView(view);
+        mImageDialog.setContentView(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.image);
         mAttacher = new PhotoViewAttacher(imageView);
+        mAttacher.setOnPhotoTapListener(this);
 
 
-        dialog.show();
+        mImageDialog.show();
+    }
+
+    @Override
+    public void onPhotoTap(View view, float v, float v1) {
+        mImageDialog.dismiss();
+        mAttacher.cleanup();
     }
 }

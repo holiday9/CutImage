@@ -25,11 +25,11 @@ public class CustomDialog extends Dialog {
         this.mCustomViewId = customViewId;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (mCustomViewId > 0) {
-            this.setContentView(mCustomViewId);
-        }
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (mCustomViewId > 0) {
+//            this.setContentView(mCustomViewId);
+//        }
+//    }
 }

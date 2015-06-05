@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#ff7e00"
+    android:background="#00ff7e00"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@id/image"
+        android:id="@+id/image"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:src="@drawable/ic_test_img"

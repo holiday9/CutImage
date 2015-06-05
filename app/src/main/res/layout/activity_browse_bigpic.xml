@@ -5,18 +5,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="138px"
-        android:layout_height="50px"
-        android:src="@drawable/icon_green_trip_people_mark"
-        android:scaleType="centerCrop"
-        />
-
     <Button
+        android:id="@+id/show_big_pic"
         android:onClick="onClick"
-        android:id="@+id/big_pic_browse_activity"
-        android:text="BigPicBrowseActivity"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:text="showBigPic" />
 </LinearLayout>

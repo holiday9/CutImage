@@ -16,17 +16,17 @@ public class BigPicShow implements PhotoViewAttacher.OnPhotoTapListener{
     PhotoViewAttacher mAttacher;
     private CustomDialog mImageDialog;
 
-    public BigPicShow(BigPicBrowseActivity bigPicBrowseActivity) {
-        this.mActivity = bigPicBrowseActivity;
+    public BigPicShow(Activity activity) {
+        this.mActivity = activity;
     }
 
     public void setData() {
     }
 
     public void show(int index) {
-        mImageDialog = new CustomDialog(mActivity,R.style.customDialog ,R.layout.show_big_pic);
+        mImageDialog = new CustomDialog(mActivity,R.style.customDialog ,R.layout.dialog_show_big_pic);
 
-        View view = mActivity.getLayoutInflater().inflate(R.layout.show_big_pic, null);
+        View view = mActivity.getLayoutInflater().inflate(R.layout.dialog_show_big_pic, null);
         mImageDialog.setContentView(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.image);
         mAttacher = new PhotoViewAttacher(imageView);

@@ -1,6 +1,7 @@
 package com.sevent.business.BigPicBrowse;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -23,6 +24,6 @@ public class BigPicBrowseActivity extends Activity implements View.OnClickListen
             BigPicShow bigPicShow = new BigPicShow(this);
             bigPicShow.show(0);
         }
-
     }
+
 }

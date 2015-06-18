@@ -5,12 +5,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="138px"
-        android:layout_height="50px"
-        android:src="@drawable/icon_green_trip_people_mark"
-        android:scaleType="centerCrop"
-        />
+    <Button
+        android:onClick="onClick"
+        android:id="@+id/oom"
+        android:text="OOM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:onClick="onClick"

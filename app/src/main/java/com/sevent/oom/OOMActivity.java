@@ -52,9 +52,11 @@ public class OOMActivity extends Activity implements View.OnClickListener {
     }
 
     private void loadImg() {
-        Bitmap bitmap = ImageUtil.decodeSampledBitmapFromResource(getResources(), R.drawable.ic_oom_test, 300, 200);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_cut_img);
 
-        mImageView.setImageBitmap(bitmap);
+        Bitmap bitmapScal = ImageUtil.scaleBitmapWithAspectRadio(bitmap, mImageView.getWidth(), mImageView.getHeight());
+
+        mImageView.setImageBitmap(bitmapScal);
     }
 
     private void allocateMem() {

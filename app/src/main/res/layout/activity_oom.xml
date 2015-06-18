@@ -11,16 +11,16 @@
         android:layout_height="100dip" />
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/show_mem_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:text="show mem info" />
 
     <LinearLayout
-        android:layout_marginTop="10dip"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip">
 
         <EditText
             android:id="@+id/amount"
@@ -29,24 +29,33 @@
             android:hint="输入要申请的内存(m)" />
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/allocate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClick"
             android:text="allocate" />
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/gc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClick"
             android:text="gc" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/load_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="load_image" />
+
     <ImageView
         android:id="@+id/image"
-        android:layout_marginTop="20dip"
         android:layout_width="300px"
-        android:layout_height="200px" />
+        android:layout_height="200px"
+        android:background="#4429ffee"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dip" />
 
 </LinearLayout>

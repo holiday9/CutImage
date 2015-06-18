@@ -2,13 +2,15 @@ package com.sevent.oom;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.images.utils.ImageUtil;
 import com.seven.cutpic.R;
 
 import java.util.ArrayList;
@@ -17,13 +19,13 @@ import java.util.List;
 /**
  * Created by htyuan on 15-6-18.
  */
-public class OOMActivity extends Activity implements View.OnClickListener{
+public class OOMActivity extends Activity implements View.OnClickListener {
     private TextView mMemInfoView;
     private EditText mAllocateAmountView;
     private ImageView mImageView;
-    private List<byte[]> mAllocateMEM = new ArrayList<>();
+    private List<byte[]> mAllocateMEM = new ArrayList<byte[]>();
 
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_oom);
@@ -39,18 +41,20 @@ public class OOMActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-         if (v.getId() == R.id.show_mem_info) {
-             updateMemeInfo();
-         } else if (v.getId() == R.id.allocate){
-             allocateMem();
-         } else if (v.getId() == R.id.gc) {
-             gc();
-         }
+        if (v.getId() == R.id.show_mem_info) {
+            updateMemeInfo();
+        } else if (v.getId() == R.id.allocate) {
+            allocateMem();
+        } else if (v.getId() == R.id.gc) {
+            gc();
+        } else if (v.getId() == R.id.load_image)
+            loadImg();
     }
 
-    private void gc() {
-        mAllocateMEM.clear();
-        System.gc();
+    private void loadImg() {
+        Bitmap bitmap = ImageUtil.decodeSampledBitmapFromResource(getResources(), R.drawable.ic_oom_test, 300, 200);
+
+        mImageView.setImageBitmap(bitmap);
     }
 
     private void allocateMem() {
@@ -75,5 +79,11 @@ public class OOMActivity extends Activity implements View.OnClickListener{
         sb.append("from runtime : " + "totalMem:" + runTimeinfo.totalMemory() + "," + "availMen:" + runTimeinfo.freeMemory());
 
         mMemInfoView.setText(sb.toString());
+    }
+
+
+    private void gc() {
+        mAllocateMEM.clear();
+        System.gc();
     }
 }
